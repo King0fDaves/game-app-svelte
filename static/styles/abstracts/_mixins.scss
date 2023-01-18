@@ -1,0 +1,39 @@
+@mixin keyframes-animation($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+
+@mixin inputField($width, $height){
+    padding-left: $width;
+    padding-right: $width;
+    padding-top:$height;
+    padding-bottom:$height;
+    background-color: $grey;
+    border: none;
+    &:focus{
+        outline: none;
+    }
+
+}
+
+@mixin buttonSize($width, $length){
+    padding-top: $length;
+    padding-bottom: $length;
+    padding-left: $width;
+    padding-right: $width;
+}
+
+@mixin borderCorners($edgeSize){
+    
+    clip-path: polygon(
+        0% $edgeSize,
+        $edgeSize 0,
+        100% 0,
+        100% calc(100% - $edgeSize),
+        calc(100% - $edgeSize) 100%,
+        0 100%
+    );
+    
+}

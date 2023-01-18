@@ -1,0 +1,14 @@
+@import "./variables";
+@import "./mixins";
+
+@include keyframes-animation(buttonShadowTransitionOn) {
+    from {box-shadow: 1vw 2vh #000;}
+    to {box-shadow: none;}
+
+}
+
+@include keyframes-animation(buttonShadowTransitionOff) {
+    to {box-shadow: 1vw 2vh #000;}
+    from {box-shadow: none;}
+
+}
