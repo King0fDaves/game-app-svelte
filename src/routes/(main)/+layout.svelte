@@ -6,13 +6,13 @@
 	<div class="grid_item header">
 		<header class="mainGrid__item item_1">
 			<SearchBar />
-			<PageNavBar  />
+			<PageNavBar items={pageNavBarItems} />
 		</header>
 	</div>
 
 	<div class="grid_item nav">
 		<nav class="mainGrid__item item_2">
-			<NavigationBar/>
+			<NavigationBar />
 		</nav> 
 	</div>
 
@@ -27,6 +27,9 @@
     import NavigationBar from "$lib/navigationBar/+page.svelte";
 	import SearchBar from '$lib/searchBar/+page.svelte';
 	import PageNavBar from '$lib/pageNavBar/+page.svelte';
-	
+	import pageNavStore from "/src/store";
 
+	let pageNavBarItems;
+	$: pageNavBarItems = $pageNavStore;
+  
 </script>

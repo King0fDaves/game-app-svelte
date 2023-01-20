@@ -5,33 +5,22 @@
 </ul>
 
 <script>
-    let items = []
-
-    import { page } from '$app/stores';
-    const path = $page.url.pathname;
-    if(path === "/store"){
-        items = [{name:"Category", route:"/What"}]
-    }else{
-        items = [{name:"ajdnj"}]
-    }
-
-
+    export let items = [];
 </script>
 
 <style lang="scss">
     .pageNavBar{
-        display: flex;
-        justify-content: flex-start;
-        list-style-type: none;
-        margin-top:-5vh;
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin-top:-5vh;
 
-        .pageNavBar__link{
-            text-decoration: none;
-            color:#fff;
-            padding-right: 2vw;
-            padding-left: 2vw;
-            font-size: 1.5rem;
-        }
+    .pageNavBar__link{
+        text-decoration: none;
+        color:#fff;
+        padding-right: 2vw;
+        padding-left: 2vw;
+        font-size: 1.5rem;
     }
-
+}
 </style>
