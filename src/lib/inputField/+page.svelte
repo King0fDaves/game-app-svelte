@@ -10,6 +10,5 @@
         @include inputField(2vw, 1.5vh);
         @include borderCorners(.75em);
         color:#fff;
-
     }
 </style>

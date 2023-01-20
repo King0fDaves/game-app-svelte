@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Sign In</h2>
+    <h2 class="formTitle">Sign In</h2>
     <form class="authForm" id="authForm">
         <div class="formField">
             <h3 class="formField__title">Enter Username</h3>
@@ -17,7 +17,10 @@
     import InputField from '$lib/inputField/+page.svelte';
 </script>
 <style lang="scss">
-    h2{
+
+
+    .formTitle{
+        padding-top: 4vh;
         text-align: center;
         font-size: 2.5em;
     }
@@ -26,12 +29,12 @@
         font-size: .75em;
         margin: auto;
         margin-top: 10vh;
-        border: solid $primaryColour .25em;
+    
         background-color: $darkGrey;
         width:30vw;
-        @media screen and (max-width: 520px) {
-            font-size: 0.5em;   
-            width:auto;
+        @media screen and (max-width:1275px) {
+        
+            background: none;
         }
     }
 

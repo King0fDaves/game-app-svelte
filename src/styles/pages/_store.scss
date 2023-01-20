@@ -1,0 +1,8 @@
+@use '../layouts/body' as body;
+@use "../layouts/mainGrid" as mainGrid;
+
+body{
+    @extend body;
+    @extend mainGrid;
+    display: grid;
+}

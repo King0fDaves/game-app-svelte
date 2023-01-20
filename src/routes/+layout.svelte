@@ -1,15 +1,6 @@
-<header>
-
-</header>
-
+<svelte:head>
+	<link rel="stylesheet" href="src/styles/layouts/_body.scss" />
+</svelte:head>
 <main>
-    <slot></slot>
+	<slot />
 </main>
-
-<footer>
-    <p>Copyright 2022 KingOfDaves Guide </p>
-</footer>
-
-<script>
-
-</script>
