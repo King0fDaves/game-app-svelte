@@ -1,11 +1,19 @@
 <ul class="pageNavBar">
     {#each items as item}
-        <li class="pageNavBar__item"><a class="pageNavBar__link" href=#>{item.name}</a></li>
+        <li class="pageNavBar__item"><a on:click={scrollIntoView} class="pageNavBar__link" href='#{item.route}'>{item.name}</a></li>
     {/each}
 </ul>
 
 <script>
-    export let items = [];
+
+    export let items = [];    
+
+    function scrollIntoView({ target }) {
+		const el = document.querySelector(target.getAttribute('href'));
+		if (!el) return;
+        el.scrollIntoView()
+    };
+
 </script>
 
 <style lang="scss">
@@ -20,7 +28,7 @@
         color:#fff;
         padding-right: 2vw;
         padding-left: 2vw;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 </style>

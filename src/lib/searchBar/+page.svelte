@@ -12,6 +12,5 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 2.5vh;
-        margin-right: 4vw;
     }
 </style>

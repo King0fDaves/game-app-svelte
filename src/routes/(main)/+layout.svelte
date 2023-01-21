@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="grid_item main">
-		<main class="mainGrid__item item_3 grid-col-span">
+		<main class="mainGrid__item item_3">
 			<slot />
 		</main>
 	</div>
@@ -31,5 +31,10 @@
 
 	let pageNavBarItems;
 	$: pageNavBarItems = $pageNavStore;
-  
+
+	//let selected = 'Categories';
+	//function getPageNavId(event) {
+	//	console.log(event.detail.text);
+	//}
+
 </script>

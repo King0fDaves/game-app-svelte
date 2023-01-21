@@ -4,11 +4,28 @@
 </div>
 
 <ul class="navbarItems">
-    <li class="navbarItem"><a class="navbarRoute" href="/store"><i class="fa-solid fa-tag"></i> Store</a></li>
-    <li class="navbarItem"><a class="navbarRoute" href="/library"><i class="fa-solid fa-folder-open"></i> Library</a></li>
-    <li class="navbarItem"><a class="navbarRoute" href="/social"><i class="fa-solid fa-users"></i> Social</a></li>
-    <li class="navbarItem"><a class="navbarRoute" href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute " href="/store"><i class="fa-solid fa-tag"></i> Store</a></li>
+    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/library"><i class="fa-solid fa-folder-open"></i> Library</a></li>
+    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/social"><i class="fa-solid fa-users"></i> Social</a></li>
+    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
 </ul>
+<script>
+
+    function toggler(){
+        //links.map(element => id === element.id ?
+        //[element.isActive = true]:[element.isActive = false])
+        console.log('hELLO')
+    }
+    let links = [
+        {id:1, isActive:false},
+        {id:2, isActive:false},
+        {id:3, isActive:false},
+        {id:4, isActive:false}
+    ]
+    
+
+    
+</script>
 <style lang="scss">
     .navHeader{
         display: flex;
@@ -19,8 +36,10 @@
         }
         .logo{
             font-size: 3rem;
+            color:$primaryColour;
             animation-name: rotateItem ;
-            animation-duration: 2s;
+            animation-duration: 4s;
+            animation-delay: 2s;
             animation-iteration-count: infinite;
         }
     }
@@ -31,12 +50,21 @@
         margin-left: -2vw;
         list-style-type: none;
         flex-direction: column;
-        row-gap: 1.5rem;
+        row-gap: 1.5rem;   
     }
 
     .navbarRoute{
         font-size: 1.25rem;
         text-decoration: none;
         color: #fff;
+        padding:.5rem;
+
+        &:hover{
+            background-color: $primaryColour;
+        }
+    }
+
+    .selected{
+        background:$primaryColour;
     }
 </style>
