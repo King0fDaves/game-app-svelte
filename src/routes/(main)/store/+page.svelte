@@ -1,8 +1,10 @@
 <div class="mainGridContainer">
     <section id="Trending" class="trendingSection"></section>
-    <section class="bannerSection"></section> 
+    <section class="bannerSection1"></section> 
     <section id="Popular" class="popularSection"></section>
+    <section class="bannerSection2"></section> 
     <section id="Categories" class="categoriesSection"></section>
+    <section class="bannerSection3"></section> 
 
 </div>
 
@@ -12,7 +14,7 @@
         padding: 0%;
         margin: 0%;
         grid-template-columns: repeat(17, 5vw);
-        grid-template-rows: repeat(24, 5vw);
+        grid-template-rows: repeat(30, 5vw);
         height:88vh;
         width:84vw;
   
@@ -26,24 +28,35 @@
         background-color: aqua;
     }
 
-    .bannerSection{
+    .popularSection{
+        grid-column: 2/16;
+        grid-row: 12/18;
+        background-color: red;
+    }
+    
+    .categoriesSection{
+        grid-column: 2/16;
+        grid-row: 22/27;
+        background-color: green;
+    }
+
+    .bannerSection1{
         grid-column: 2/16;
         grid-row: 9/11;
         background-color: aqua;
     }
 
-    .popularSection{
+    .bannerSection2{
         grid-column: 2/16;
-        grid-row: 12/18;
-        background-color: aqua;
+        grid-row: 19/21;
+        background-color: red;
     }
     
-    .categoriesSection{
+    .bannerSection3{
         grid-column: 2/16;
-        grid-row: 19/24;
-        background-color: aqua;
+        grid-row: 28/30;
+        background-color: green;
     }
-    
 </style>
 
 <script>

@@ -9,9 +9,9 @@
     export let items = [];    
 
     function scrollIntoView({ target }) {
-		const el = document.querySelector(target.getAttribute('href'));
-		if (!el) return;
-        el.scrollIntoView()
+		const element = document.querySelector(target.getAttribute('href'));
+		if (!element) return;
+        element.scrollIntoView()
     };
 
 </script>

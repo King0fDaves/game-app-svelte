@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
 
-const pageNavStore = writable([{name:"Hello", route:"Fudge"}]);
-
+const pageNavStore = writable([{}]);
 
 export default pageNavStore;

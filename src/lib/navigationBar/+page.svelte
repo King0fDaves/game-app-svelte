@@ -7,7 +7,7 @@
     <li class="navbarItem"><a onclick={toggler()} class="navbarRoute " href="/store"><i class="fa-solid fa-tag"></i> Store</a></li>
     <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/library"><i class="fa-solid fa-folder-open"></i> Library</a></li>
     <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/social"><i class="fa-solid fa-users"></i> Social</a></li>
-    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/"><i class="logoutIcon fa-sharp fa-solid fa-right-from-bracket"></i>  Log Out</a>
 </ul>
 <script>
 
@@ -66,5 +66,9 @@
 
     .selected{
         background:$primaryColour;
+    }
+
+    .logoutIcon{
+        rotate: 180deg;
     }
 </style>
