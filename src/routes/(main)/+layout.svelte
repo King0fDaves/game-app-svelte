@@ -5,7 +5,6 @@
 <div class="mainGridLayout">
 	<div class="grid_item header">
 		<header class="mainGrid__item item_1">
-			<SearchBar />
 			<PageNavBar items={pageNavBarItems} />
 		</header>
 	</div>
@@ -25,16 +24,10 @@
 
 <script>
     import NavigationBar from "$lib/navigationBar/+page.svelte";
-	import SearchBar from '$lib/searchBar/+page.svelte';
 	import PageNavBar from '$lib/pageNavBar/+page.svelte';
-	import pageNavStore from "/src/store";
+	import { pageNavStore } from "/src/store";
 
 	let pageNavBarItems;
 	$: pageNavBarItems = $pageNavStore;
-
-	//let selected = 'Categories';
-	//function getPageNavId(event) {
-	//	console.log(event.detail.text);
-	//}
 
 </script>

@@ -23,6 +23,7 @@
         padding-top: 4vh;
         text-align: center;
         font-size: 2.5em;
+
     }
     .container{
         display: block;

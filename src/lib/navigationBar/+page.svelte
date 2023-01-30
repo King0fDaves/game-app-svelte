@@ -2,68 +2,102 @@
     <div class="logo">&#x2B22;</div>
     <h1 class="title">No Life</h1>
 </div>
-
-<ul class="navbarItems">
-    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute " href="/store"><i class="fa-solid fa-tag"></i> Store</a></li>
-    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/library"><i class="fa-solid fa-folder-open"></i> Library</a></li>
-    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/social"><i class="fa-solid fa-users"></i> Social</a></li>
-    <li class="navbarItem"><a onclick={toggler()} class="navbarRoute" href="/"><i class="logoutIcon fa-sharp fa-solid fa-right-from-bracket"></i>  Log Out</a>
-</ul>
-<script>
-
-    function toggler(){
-        //links.map(element => id === element.id ?
-        //[element.isActive = true]:[element.isActive = false])
-        console.log('hELLO')
-    }
-    let links = [
-        {id:1, isActive:false},
-        {id:2, isActive:false},
-        {id:3, isActive:false},
-        {id:4, isActive:false}
-    ]
     
+<ul class="navbarItems">
+    {#each items as item}
+        <li class="navbarItem"><a class="navbarRoute  {item.name === page ? ['selected']:['']} " href="{item.route}"><i class={item.icon}></i> <span class="title">{item.name}</span></a></li>
+    {/each} 
+</ul>
 
+
+<script>
+        
+    import { navbarStore, currentPageStore } from '/src/store';
+
+    export let items;
+
+    let page;
+
+    $: page = $currentPageStore;
+
+    $: items = $navbarStore;
     
 </script>
-<style lang="scss">
-    .navHeader{
-        display: flex;
-        .title{
-            margin-left: 1vw;
-            font-size: 1.5rem;
-            align-items: center;
+<style lang="scss" global>
+    @media screen and (max-width:750px){
+
+      
+           .navHeader{
+                display: none;
+                padding:0;
+                margin:0;
+           }
+
+           .title{
+            display: none;
+            padding:0;
+            margin:0;
+           }
+           .navbarItems{
+                padding:0;
+                margin:0;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                list-style: none;
+            }
+
+           .navbarRoute{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.3rem;
+            justify-content:center;
+           }
+
+
         }
-        .logo{
-            font-size: 3rem;
-            color:$primaryColour;
-            animation-name: rotateItem ;
-            animation-duration: 4s;
-            animation-delay: 2s;
-            animation-iteration-count: infinite;
+    @media screen and (min-width: 751px){
+        .navHeader{
+            display: flex;
+            .title{
+                margin-left: 1vw;
+                font-size: 1.5rem;
+                align-items: center;
+            }
+            .logo{
+                font-size: 3rem;
+                color:$primaryColour;
+                animation-name: rotateItem ;
+                animation-duration: 4s;
+                animation-delay: 2s;
+                animation-iteration-count: infinite;
+            }
         }
-    }
     
-    .navbarItems{
-        margin-top: 8vh;
-        display: flex;
-        margin-left: -2vw;
-        list-style-type: none;
-        flex-direction: column;
-        row-gap: 1.5rem;   
-    }
-
-    .navbarRoute{
-        font-size: 1.25rem;
-        text-decoration: none;
-        color: #fff;
-        padding:.5rem;
-
-        &:hover{
-            background-color: $primaryColour;
+        .navbarItems{
+            margin-top: 8vh;
+            display: flex;
+            margin-left: -2vw;
+            list-style-type: none;
+            flex-direction: column;
+            row-gap: 1.5rem;
         }
-    }
 
+        .navbarRoute{
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: #fff;
+            padding:.5rem;
+
+            &:hover{
+                background-color: $primaryColour;
+            }
+        }
+    }    
+    
     .selected{
         background:$primaryColour;
     }

@@ -1,10 +1,17 @@
-<div class="mainGridContainer">
-    <section id="Friends" class="friendsSection"></section> 
-    <section id="Groups" class="groupsSection"></section>
-    <section id="Communities" class="communitiesSection"></section>
+<div class="main">
+    <div class="mainGridContainer">
+        <section id="Friends" class="friendsSection"></section> 
+        <section id="Groups" class="groupsSection"></section>
+        <section id="Communities" class="communitiesSection"></section>
+    </div>
 </div>
 
 <style lang="scss">
+    @media screen and (max-width: 751px){
+        .main{
+            display:none
+        }
+    }
     .mainGridContainer{
         display: grid;
         padding: 0%;
@@ -37,7 +44,10 @@
 </style>
 
 <script>
-    import pageNavStore from "/src/store";
+    import { pageNavStore, currentPageStore } from "/src/store";
+
+    let page = 'Social';
+
     let pageNavItems = [
                         {name:"Friends", route:"Friends"},
                         {name:'Groups', route:'Groups'},
@@ -46,6 +56,10 @@
     ;
     pageNavStore.update((currentData) =>{
         return currentData = pageNavItems;
+    })
+
+    currentPageStore.update((currentData) =>{
+            return currentData = page;
     })
 
 </script>

@@ -1,8 +1,9 @@
 // Colours
 $backgroundColour:#121212;
-$primaryColour: rgba(90, 255, 68, 0.692);//rgb(191, 29, 255);
+$primaryColour: #f53123e1;
 $grey:rgba(107, 107, 107, 0.342);
 $darkGrey:rgba(43, 43, 43, 0.404);
 
+$linearPrimary: linear-gradient(180deg $primaryColour #fff);
 //Sizes
 $edgeSize: .5em;

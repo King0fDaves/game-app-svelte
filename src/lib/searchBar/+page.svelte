@@ -1,16 +1,16 @@
-<div class="searchBarContainer">
-    <InputField placeholder="Search" />
-</div>
+<InputField placeholder="Search" />
+
 
 
 <script>
     import InputField from '$lib/inputField/+page.svelte';
 </script>
 
-<style lang="scss">
+<style lang="scss" global>
     .searchBarContainer{
         display: flex;
-        justify-content: flex-end;
         margin-top: 2.5vh;
+        margin-left: 60vw;
+        grid-column: 15/19;
     }
 </style>

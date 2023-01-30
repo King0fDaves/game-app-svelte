@@ -1,10 +1,18 @@
-<div class="mainGridContainer">
-    <section id="Owned" class="ownedSection"></section> 
-    <section id="Wishlist" class="wishlistSection"></section>
-    <section id="Sold" class="soldSection"></section>
+<div class="main">
+    <div class="mainGridContainer">
+        <section id="Owned" class="ownedSection"></section> 
+        <section id="Wishlist" class="wishlistSection"></section>
+        <section id="Sold" class="soldSection"></section>
+    </div>
 </div>
 
 <style lang="scss">
+    @media screen and (max-width: 751px){
+        .main{
+            display:none
+        }
+    }
+    
     .mainGridContainer{
         display: grid;
         padding: 0%;
@@ -37,7 +45,10 @@
 </style>
 
 <script>
-    import pageNavStore from "/src/store";
+    import { pageNavStore, currentPageStore } from "/src/store";
+
+    let page = 'Library';
+
     let pageNavItems = [
                         {name:"Owned", route:"Owned"},
                         {name:'Wishlist', route:'Wishlist'},
@@ -46,5 +57,9 @@
 
     pageNavStore.update((currentData) =>{
         return currentData = pageNavItems;
+    })
+
+    currentPageStore.update((currentData) =>{
+            return currentData = page;
     })
 </script>

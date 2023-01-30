@@ -1,14 +1,21 @@
-<div class="mainGridContainer">
-    <section id="Trending" class="trendingSection"></section>
-    <section class="bannerSection1"></section> 
-    <section id="Popular" class="popularSection"></section>
-    <section class="bannerSection2"></section> 
-    <section id="Categories" class="categoriesSection"></section>
-    <section class="bannerSection3"></section> 
-
+<div class="main">
+    <div class="mainGridContainer">
+        <section id="Trending" class="trendingSection"></section>
+        <section class="bannerSection1"></section> 
+        <section id="Popular" class="popularSection"></section>
+        <section class="bannerSection2"></section> 
+        <section id="Categories" class="categoriesSection"></section>
+        <section class="bannerSection3"></section> 
+    </div>
 </div>
 
+
 <style lang="scss">
+    @media screen and (max-width: 751px){
+        .main{
+            display:none
+        }
+    }
     .mainGridContainer{
         display: grid;
         padding: 0%;
@@ -60,8 +67,10 @@
 </style>
 
 <script>
-    import pageNavStore from "/src/store";
+    import {pageNavStore, currentPageStore} from "/src/store";
 
+    let page = 'Store';
+    
     let pageNavItems =[
         {name:"Popular", route:"Popular"},
         {name:"Categories", route:"Categories"},
@@ -72,6 +81,7 @@
         return currentData = pageNavItems;
     })
 
-
-
+    currentPageStore.update((currentData) =>{
+            return currentData = page;
+    })
 </script>
