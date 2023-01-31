@@ -23,7 +23,7 @@
     $: items = $navbarStore;
     
 </script>
-<style lang="scss" global>
+<style lang="scss">
     @media screen and (max-width:750px){
 
       

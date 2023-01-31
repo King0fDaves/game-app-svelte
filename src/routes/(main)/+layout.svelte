@@ -15,7 +15,7 @@
 		</nav> 
 	</div>
 
-	<div class="grid_item main">
+	<div class="grid_item mainSection">
 		<main class="mainGrid__item item_3">
 			<slot />
 		</main>

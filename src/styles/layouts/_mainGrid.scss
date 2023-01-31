@@ -43,23 +43,22 @@ body{
     .mainGridLayout{
         display: grid;
         grid-template-columns: repeat(100, 1fr);
-        grid-template-rows:  repeat(10, 9vh);
+        grid-template-rows:  repeat(9, 1fr);
         overflow-x: hidden;
         overflow-y: hidden;
     }
-
     .header{
         grid-column: 1/101;
-        grid-row: 1;
-        background-color: aqua;
+        grid-row: 1/1;
+        background-color: $darkGrey;
     }
-    .main{
+    .mainSection{
         grid-column: 1/101;
-        grid-row: 2/10;
-        background-color: green;
+        grid-row: 2/9;
+    
     }
     .nav{
-        grid-row: 10/11;
+        grid-row: 9/10;
         grid-column: 1/101;
         background-color: $darkGrey;
         
