@@ -9,6 +9,8 @@ export const navbarStore = writable([
 
 ]);
 
+export const currentSectionStore = writable('Trending')
+
 export const currentPageStore = writable('store');
 
 //export default pageNavStore;

@@ -1,21 +1,23 @@
 <div class="main">
     <div class="navHeader">
         <div class="logo">&#x2B22;</div>
-        <h1 class="title">No Life</h1>
-        
+        <h1 class="title">No Life</h1>        
     </div>
-
+                    
     <ul class="pageNavBar">
         {#each items as item}
-            <li class="pageNavBar__item"><a on:click={scrollIntoView} class="pageNavBar__link" href='#{item.route}'>{item.name}</a></li>
+            <li class="pageNavBar__item"><a on:click={()=>[scrollIntoView, selectedSect(item)]} class="pageNavBar__link" href='#{item.route}'><span class="{ item.name === section ? ['selected']:['']}"> {item.name}</span></a></li>
         {/each}
-        <i class="fa-solid fa-bars"></i>
-    </ul>
-
     
+        <i class="fa-solid fa-bars"></i>
+
+    </ul>
 </div>
 
 <script>
+    import { currentSectionStore } from '/src/store';
+    
+    let section;
 
     export let items = [];    
 
@@ -25,19 +27,27 @@
         element.scrollIntoView()
     };
 
+    function selectedSect(element){
+        section = element.name
+    }
+
+    $: section = $currentSectionStore;
+
 </script>
 
 <style lang="scss">
-    @media screen and (max-width: 750px){
+
+    .selected{
+        color:$primaryColour;
+    }
+    @media screen and (max-width: $shrinkWidth){
         .main{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
         }
 
         .pageNavBar{
-
             display: flex;
-            grid-column: 2/3;
             justify-content: flex-end;
         }
 
@@ -64,6 +74,11 @@
                 font-size: 2.5rem;
                 margin-right: 3vw;
                 margin-left: 3vw;
+                color:$primaryColour;
+                animation-name: rotateItem ;
+                animation-duration: 4s;
+                animation-delay: 2s;
+                animation-iteration-count: infinite;
             }
             .title{
                 font-size: 1.5rem;
@@ -71,7 +86,7 @@
         }
     }
 
-    @media screen and (min-width: 751px){
+    @media screen and (min-width: $shrinkWidth){
         i{
             display: none;
         }
@@ -93,13 +108,9 @@
             padding-left: 2vw;
             font-size: 1.2rem;
         }
-
-  
     }
 
     .pageNavBarBtn{
         display: none
     }
-
-
 </style>

@@ -1,13 +1,30 @@
 <div class="main">
     <div class="mainGridContainer">
-        <section id="Friends" class="friendsSection"></section> 
-        <section id="Groups" class="groupsSection"></section>
-        <section id="Communities" class="communitiesSection"></section>
+        <section 
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Friends')]}
+            id="Friends" class="friendsSection"
+        >
+        </section> 
+
+        <section 
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Groups')]}
+            id="Groups" class="groupsSection"
+        >
+        </section>
+
+        <section 
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Communities')]}
+            id="Communities" class="communitiesSection"
+        >
+        </section>
     </div>
 </div>
 
 <style lang="scss">
-    @media screen and (max-width: 751px){
+    @media screen and (max-width: $shrinkWidth){
         .main{
             display:none
         }
@@ -44,9 +61,11 @@
 </style>
 
 <script>
-    import { pageNavStore, currentPageStore } from "/src/store";
+    import { pageNavStore, currentPageStore, currentSectionStore } from "/src/store";
 
     let page = 'Social';
+
+    let section;
 
     let pageNavItems = [
                         {name:"Friends", route:"Friends"},
@@ -61,5 +80,14 @@
     currentPageStore.update((currentData) =>{
             return currentData = page;
     })
+
+
+    function onHover(element){
+
+        section = element;
+        currentSectionStore.update((currentData) => {
+        return currentData = section;
+        })
+    }
 
 </script>

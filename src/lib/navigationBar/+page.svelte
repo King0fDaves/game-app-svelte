@@ -2,7 +2,6 @@
     <div class="logo">&#x2B22;</div>
     <h1 class="title">No Life</h1>
 </div>
-    
 <ul class="navbarItems">
     {#each items as item}
         <li class="navbarItem"><a class="navbarRoute  {item.name === page ? ['selected']:['']} " href="{item.route}"><i class={item.icon}></i> <span class="title">{item.name}</span></a></li>
@@ -15,7 +14,7 @@
     import { navbarStore, currentPageStore } from '/src/store';
 
     export let items;
-
+    
     let page;
 
     $: page = $currentPageStore;
@@ -24,7 +23,7 @@
     
 </script>
 <style lang="scss">
-    @media screen and (max-width:750px){
+    @media screen and (max-width: $shrinkWidth){
 
       
            .navHeader{
@@ -59,7 +58,7 @@
 
 
         }
-    @media screen and (min-width: 751px){
+    @media screen and (min-width: $shrinkWidth){
         .navHeader{
             display: flex;
             .title{

@@ -1,17 +1,34 @@
 <div class="main">
     <div class="mainGridContainer">
-        <section id="Trending" class="trendingSection"></section>
+        <section
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Trending')]}
+            id="Trending" class="trendingSection"
+        >
+        </section>
         <section class="bannerSection1"></section> 
-        <section id="Popular" class="popularSection"></section>
+
+        <section 
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Popular')]}
+            id="Popular" class="popularSection"
+            >
+        </section>
         <section class="bannerSection2"></section> 
-        <section id="Categories" class="categoriesSection"></section>
+        
+        <section 
+            on:focus={onHover}
+            on:mouseover={() => [onHover('Categories')]}
+            id="Categories" class="categoriesSection">
+
+        </section>
         <section class="bannerSection3"></section> 
     </div>
 </div>
 
 
 <style lang="scss">
-    @media screen and (max-width: 751px){
+    @media screen and (max-width: $shrinkWidth){
         .main{
             display:none
         }
@@ -64,17 +81,23 @@
         grid-row: 28/30;
         background-color: green;
     }
+
+    .selected{
+        color:$primaryColour
+    }
 </style>
 
 <script>
-    import {pageNavStore, currentPageStore} from "/src/store";
+    import {pageNavStore, currentPageStore, currentSectionStore} from "/src/store";
 
     let page = 'Store';
+
+    let section; 
     
     let pageNavItems =[
-        {name:"Popular", route:"Popular"},
-        {name:"Categories", route:"Categories"},
-        {name:"Trending", route:"Trending"},
+        {name:"Popular", route:"Popular", clicked:false},
+        {name:"Categories", route:"Categories", clicked:false},
+        {name:"Trending", route:"Trending", clicked:false},
         ];
 
     pageNavStore.update((currentData) =>{
@@ -84,4 +107,14 @@
     currentPageStore.update((currentData) =>{
             return currentData = page;
     })
+
+
+    function onHover(element){
+        
+        section = element;
+
+        currentSectionStore.update((currentData) => {
+        return currentData = section;
+        })
+    }
 </script>
